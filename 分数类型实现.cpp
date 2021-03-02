@@ -1,42 +1,42 @@
-//±àĞ´ÈË£º19ĞÅÏ¢Óë¼ÆËã¿ÆÑ§2°à Ñ¦Í®Í® 
-//±àĞ´ÈÕÆÚ£º 2020Äê12ÔÂ8ÈÕ
-//ÔËĞĞÇé¿ö£ºvs2019£¬vc++ ÍêÃÀÔËĞĞ
-/*ÄÚÈİº­¸Ç£º
-1.³õÊ¼»¯
-2.·ÖÊıµÄÏÔÊ¾
-3.·ÖÊı»¯¼ò
-4.¼Ó¼õ³Ë³ıÊµÏÖ
-ÀûÓÃ×î´ó¹«Ô¼ÊıºÍ×îĞ¡¹«±¶Êı
-ÔÚÏß£ºhttps://blog.csdn.net/nruuu/article/details/110881699
+
+//ç¼–å†™æ—¥æœŸï¼š 2020å¹´12æœˆ8æ—¥
+//è¿è¡Œæƒ…å†µï¼švs2019ï¼Œvc++ å®Œç¾è¿è¡Œ
+/*å†…å®¹æ¶µç›–ï¼š
+1.åˆå§‹åŒ–
+2.åˆ†æ•°çš„æ˜¾ç¤º
+3.åˆ†æ•°åŒ–ç®€
+4.åŠ å‡ä¹˜é™¤å®ç°
+åˆ©ç”¨æœ€å¤§å…¬çº¦æ•°å’Œæœ€å°å…¬å€æ•°
+
 */
 #include <stdio.h>
-//#include <bits/stdc++.h> vs2019ÏÂÔËĞĞÇëÈ¡ÏûÕâÒ»ĞĞµÄ×¢ÊÍ
+//#include <bits/stdc++.h> vs2019ä¸‹è¿è¡Œè¯·å–æ¶ˆè¿™ä¸€è¡Œçš„æ³¨é‡Š
 #include <iostream>
 #define OK 1
 #define ERROR 0
 #define Status int
 using namespace std;
 
-typedef struct  Fraction//·ÖÊı½á¹¹Ìå¶¨Òå
+typedef struct  Fraction//åˆ†æ•°ç»“æ„ä½“å®šä¹‰
 {
 	int numerator;
 	int denominator;
 }fraction;
-Status InitFrac(fraction& F)//½á¹¹Ìå³õÊ¼»¯
+Status InitFrac(fraction& F)//ç»“æ„ä½“åˆå§‹åŒ–
 {
 	int numer;
 	int denom;
 	
-	cout << "·Ö×ÓÎª£º";
+	cout << "åˆ†å­ä¸ºï¼š";
 	cin >> numer;
-	cout << "·ÖÄ¸Îª£º";
+	cout << "åˆ†æ¯ä¸ºï¼š";
 	cin >> denom;
 	F.denominator = denom;
 	F.numerator = numer;
 	return OK;
 }
 
-int gcd(fraction F)//×î´ó¹«Ô¼Êı
+int gcd(fraction F)//æœ€å¤§å…¬çº¦æ•°
 {
 	int r;
 	int tmp;
@@ -62,21 +62,21 @@ int gcd(fraction F)//×î´ó¹«Ô¼Êı
 		return b;
 	}
 }
-Status IsFraction(fraction F)//ÅĞ¶ÏÊÇ·ñÎª·ÖÊı
+Status IsFraction(fraction F)//åˆ¤æ–­æ˜¯å¦ä¸ºåˆ†æ•°
 {
 	if (F.denominator != 0)
 		return OK;
 	else
 		return ERROR;
 }
-void SimpFraction(fraction F)//·ÖÊıµÄ»¯¼ò
+void SimpFraction(fraction F)//åˆ†æ•°çš„åŒ–ç®€
 {
 	if (IsFraction(F))
-		cout << "×î¼òĞÎÊ½Îª£º" << F.numerator / gcd(F) << "/" << F.denominator / gcd(F) << endl;
+		cout << "æœ€ç®€å½¢å¼ä¸ºï¼š" << F.numerator / gcd(F) << "/" << F.denominator / gcd(F) << endl;
 	else
-		cout << "·ÖÊı²»´æÔÚ"<<endl;
+		cout << "åˆ†æ•°ä¸å­˜åœ¨"<<endl;
 }
-int lcm(fraction F,fraction G)//Á½¸ö·ÖÊı×îĞ¡¹«±¶ÊıµÄÇó½â
+int lcm(fraction F,fraction G)//ä¸¤ä¸ªåˆ†æ•°æœ€å°å…¬å€æ•°çš„æ±‚è§£
 {
 	int Lcm = 0;
 	int tmp=0;
@@ -93,7 +93,7 @@ int lcm(fraction F,fraction G)//Á½¸ö·ÖÊı×îĞ¡¹«±¶ÊıµÄÇó½â
 		Lcm = a * b;
 	return Lcm;
 }
-Status printFrac(fraction F)//·ÖÊıµÄ±íÊ¾
+Status printFrac(fraction F)//åˆ†æ•°çš„è¡¨ç¤º
 {
 	if (IsFraction(F))
 	{
@@ -105,14 +105,14 @@ Status printFrac(fraction F)//·ÖÊıµÄ±íÊ¾
 	}
 	else
 	{
-		cout << "·ÖÊı²»´æÔÚ" << endl;
+		cout << "åˆ†æ•°ä¸å­˜åœ¨" << endl;
 		return 0;
 	}
 
 
 }
 
-Status AddFraction(fraction F, fraction G, fraction& S)//·ÖÊı¼Ó·¨
+Status AddFraction(fraction F, fraction G, fraction& S)//åˆ†æ•°åŠ æ³•
 {
 	if (IsFraction(F)||IsFraction(G))
 	{
@@ -140,17 +140,17 @@ Status AddFraction(fraction F, fraction G, fraction& S)//·ÖÊı¼Ó·¨
 		}
 		S.denominator = Sdenominator;
 		S.numerator = Snumerator;
-		cout << "·ÖÊıÏà¼Óºó½á¹ûµÄ";
+		cout << "åˆ†æ•°ç›¸åŠ åç»“æœçš„";
 		SimpFraction(S);
 		return OK;
 	}
 	else
-		cout << "·ÖÊı²»´æÔÚ" << endl;
+		cout << "åˆ†æ•°ä¸å­˜åœ¨" << endl;
 		return ERROR;
 
 
 }
-Status SubFraction(fraction F, fraction G, fraction& S)//·ÖÊı¼õ·¨
+Status SubFraction(fraction F, fraction G, fraction& S)//åˆ†æ•°å‡æ³•
 {
 	if (IsFraction(F)||IsFraction(G))
 	{
@@ -182,16 +182,16 @@ Status SubFraction(fraction F, fraction G, fraction& S)//·ÖÊı¼õ·¨
 		}
 		S.denominator = Sdenominator;
 		S.numerator = Snumerator;
-		cout << "·ÖÊıÏà¼õÖ®ºó½á¹ûµÄ";
+		cout << "åˆ†æ•°ç›¸å‡ä¹‹åç»“æœçš„";
 		SimpFraction(S);
 		return OK;
 	}
 	else
-		cout << "·ÖÊı²»´æÔÚ" << endl;
+		cout << "åˆ†æ•°ä¸å­˜åœ¨" << endl;
 		return ERROR;
 }
 
-Status MulFraction(fraction F, fraction G, fraction& S)//·ÖÊı³Ë·¨
+Status MulFraction(fraction F, fraction G, fraction& S)//åˆ†æ•°ä¹˜æ³•
 {
 	if (IsFraction(F)||IsFraction(G))
 	{
@@ -206,12 +206,12 @@ Status MulFraction(fraction F, fraction G, fraction& S)//·ÖÊı³Ë·¨
 		S.denominator = Sdenominator;
 		S.numerator = Snumerator;
 		if (Sdenominator == 0)
-			cout << "·ÖÊı²»´æÔÚ" << endl;
+			cout << "åˆ†æ•°ä¸å­˜åœ¨" << endl;
 		else if (Snumerator == 0)
-			cout << "·ÖÊıÏà³Ë½á¹ûÎª0" << endl;
+			cout << "åˆ†æ•°ç›¸ä¹˜ç»“æœä¸º0" << endl;
 		else
 		{
-			cout << "Ïà³Ë½á¹ûµÄ";
+			cout << "ç›¸ä¹˜ç»“æœçš„";
 			SimpFraction(S);
 		}
 		return OK;
@@ -219,7 +219,7 @@ Status MulFraction(fraction F, fraction G, fraction& S)//·ÖÊı³Ë·¨
 	else
 		return ERROR;
 }
-Status DivFraction(fraction F, fraction G, fraction& S)//·ÖÊı³ı·¨
+Status DivFraction(fraction F, fraction G, fraction& S)//åˆ†æ•°é™¤æ³•
 {
 	if (IsFraction(F)||IsFraction(G))
 	{
@@ -234,13 +234,13 @@ Status DivFraction(fraction F, fraction G, fraction& S)//·ÖÊı³ı·¨
 		S.denominator = Sdenominator;
 		S.numerator = Snumerator;
 		if (Sdenominator == 0)
-			cout << "·ÖÊı²»´æÔÚ" << endl;
+			cout << "åˆ†æ•°ä¸å­˜åœ¨" << endl;
 
 		else if (Snumerator == 0)
-			cout << "·ÖÊıÎª0" << endl;
+			cout << "åˆ†æ•°ä¸º0" << endl;
 		else
 		{
-			cout << "·ÖÊıÏà³ı½á¹ûµÄ";
+			cout << "åˆ†æ•°ç›¸é™¤ç»“æœçš„";
 			SimpFraction(S);
 		}
 		return OK;
@@ -270,97 +270,97 @@ int  main()
 }
 
 /*
-²âÊÔ½á¹û
-**ÊäÈë£º**
+æµ‹è¯•ç»“æœ
+**è¾“å…¥ï¼š**
 0
 0
 0
 0
-**Êä³ö£º**
-·Ö×ÓÎª£º0
-·ÖÄ¸Îª£º0
-·ÖÊı²»´æÔÚ
-·Ö×ÓÎª£º0
-·ÖÄ¸Îª£º0
-·ÖÊı²»´æÔÚ
-·ÖÊı²»´æÔÚ
-·ÖÊı²»´æÔÚ
-·ÖÊı²»´æÔÚ
-·ÖÊı²»´æÔÚ
+**è¾“å‡ºï¼š**
+åˆ†å­ä¸ºï¼š0
+åˆ†æ¯ä¸ºï¼š0
+åˆ†æ•°ä¸å­˜åœ¨
+åˆ†å­ä¸ºï¼š0
+åˆ†æ¯ä¸ºï¼š0
+åˆ†æ•°ä¸å­˜åœ¨
+åˆ†æ•°ä¸å­˜åœ¨
+åˆ†æ•°ä¸å­˜åœ¨
+åˆ†æ•°ä¸å­˜åœ¨
+åˆ†æ•°ä¸å­˜åœ¨
 
-**ÊäÈë£º**
+**è¾“å…¥ï¼š**
 114
 114514
 514
 114514
-**Êä³ö£º**
-·Ö×ÓÎª£º114
-·ÖÄ¸Îª£º114514
+**è¾“å‡ºï¼š**
+åˆ†å­ä¸ºï¼š114
+åˆ†æ¯ä¸ºï¼š114514
 114/114514
-·Ö×ÓÎª£º514
-·ÖÄ¸Îª£º114514
+åˆ†å­ä¸ºï¼š514
+åˆ†æ¯ä¸ºï¼š114514
 514/114514
-×î¼òĞÎÊ½Îª£º57/57257
-×î¼òĞÎÊ½Îª£º257/57257
-·ÖÊıÏà¼Óºó½á¹ûµÄ×î¼òĞÎÊ½Îª£º314/57257
-·ÖÊıÏà¼õÖ®ºó½á¹ûµÄ×î¼òĞÎÊ½Îª£º200/-57257
-Ïà³Ë½á¹ûµÄ×î¼òĞÎÊ½Îª£º14649/57138577
-·ÖÊıÏà³ı½á¹ûµÄ×î¼òĞÎÊ½Îª£º57/257
+æœ€ç®€å½¢å¼ä¸ºï¼š57/57257
+æœ€ç®€å½¢å¼ä¸ºï¼š257/57257
+åˆ†æ•°ç›¸åŠ åç»“æœçš„æœ€ç®€å½¢å¼ä¸ºï¼š314/57257
+åˆ†æ•°ç›¸å‡ä¹‹åç»“æœçš„æœ€ç®€å½¢å¼ä¸ºï¼š200/-57257
+ç›¸ä¹˜ç»“æœçš„æœ€ç®€å½¢å¼ä¸ºï¼š14649/57138577
+åˆ†æ•°ç›¸é™¤ç»“æœçš„æœ€ç®€å½¢å¼ä¸ºï¼š57/257
 
-**ÊäÈë£º**
+**è¾“å…¥ï¼š**
 615
 1722
 1107
 1923
-**Êä³ö£º**
-·Ö×ÓÎª£º615
-·ÖÄ¸Îª£º1722
+**è¾“å‡ºï¼š**
+åˆ†å­ä¸ºï¼š615
+åˆ†æ¯ä¸ºï¼š1722
 615/1722
-·Ö×ÓÎª£º1107
-·ÖÄ¸Îª£º1923
+åˆ†å­ä¸ºï¼š1107
+åˆ†æ¯ä¸ºï¼š1923
 1107/1923
-×î¼òĞÎÊ½Îª£º5/14
-×î¼òĞÎÊ½Îª£º369/641
-·ÖÊıÏà¼Óºó½á¹ûµÄ×î¼òĞÎÊ½Îª£º8371/8974
-·ÖÊıÏà¼õÖ®ºó½á¹ûµÄ×î¼òĞÎÊ½Îª£º1961/-8974
-Ïà³Ë½á¹ûµÄ×î¼òĞÎÊ½Îª£º1845/8974
-·ÖÊıÏà³ı½á¹ûµÄ×î¼òĞÎÊ½Îª£º3205/5166
+æœ€ç®€å½¢å¼ä¸ºï¼š5/14
+æœ€ç®€å½¢å¼ä¸ºï¼š369/641
+åˆ†æ•°ç›¸åŠ åç»“æœçš„æœ€ç®€å½¢å¼ä¸ºï¼š8371/8974
+åˆ†æ•°ç›¸å‡ä¹‹åç»“æœçš„æœ€ç®€å½¢å¼ä¸ºï¼š1961/-8974
+ç›¸ä¹˜ç»“æœçš„æœ€ç®€å½¢å¼ä¸ºï¼š1845/8974
+åˆ†æ•°ç›¸é™¤ç»“æœçš„æœ€ç®€å½¢å¼ä¸ºï¼š3205/5166
 
-**ÊäÈë£º**
+**è¾“å…¥ï¼š**
 1
 0
 2
 7
-**Êä³ö£º**
-·Ö×ÓÎª£º1
-·ÖÄ¸Îª£º0
-·ÖÊı²»´æÔÚ
-·Ö×ÓÎª£º2
-·ÖÄ¸Îª£º7
+**è¾“å‡ºï¼š**
+åˆ†å­ä¸ºï¼š1
+åˆ†æ¯ä¸ºï¼š0
+åˆ†æ•°ä¸å­˜åœ¨
+åˆ†å­ä¸ºï¼š2
+åˆ†æ¯ä¸ºï¼š7
 2/7
-·ÖÊı²»´æÔÚ
-×î¼òĞÎÊ½Îª£º2/7
-·ÖÊıÏà¼Óºó½á¹ûµÄ×î¼òĞÎÊ½Îª£º2/7
-·ÖÊıÏà¼õÖ®ºó½á¹ûµÄ×î¼òĞÎÊ½Îª£º-2/7
-·ÖÊı²»´æÔÚ
-·ÖÊı²»´æÔÚ
+åˆ†æ•°ä¸å­˜åœ¨
+æœ€ç®€å½¢å¼ä¸ºï¼š2/7
+åˆ†æ•°ç›¸åŠ åç»“æœçš„æœ€ç®€å½¢å¼ä¸ºï¼š2/7
+åˆ†æ•°ç›¸å‡ä¹‹åç»“æœçš„æœ€ç®€å½¢å¼ä¸ºï¼š-2/7
+åˆ†æ•°ä¸å­˜åœ¨
+åˆ†æ•°ä¸å­˜åœ¨
 
-**ÊäÈë£º**
+**è¾“å…¥ï¼š**
 0
 22
 78
 45
-**Êä³ö£º**
-·Ö×ÓÎª£º0
-·ÖÄ¸Îª£º22
+**è¾“å‡ºï¼š**
+åˆ†å­ä¸ºï¼š0
+åˆ†æ¯ä¸ºï¼š22
 0
-·Ö×ÓÎª£º78
-·ÖÄ¸Îª£º45
+åˆ†å­ä¸ºï¼š78
+åˆ†æ¯ä¸ºï¼š45
 78/45
-×î¼òĞÎÊ½Îª£º0/1
-×î¼òĞÎÊ½Îª£º26/15
-·ÖÊıÏà¼Óºó½á¹ûµÄ×î¼òĞÎÊ½Îª£º26/15
-·ÖÊıÏà¼õÖ®ºó½á¹ûµÄ×î¼òĞÎÊ½Îª£º-26/15
-·ÖÊıÏà³Ë½á¹ûÎª0
-·ÖÊıÎª0
+æœ€ç®€å½¢å¼ä¸ºï¼š0/1
+æœ€ç®€å½¢å¼ä¸ºï¼š26/15
+åˆ†æ•°ç›¸åŠ åç»“æœçš„æœ€ç®€å½¢å¼ä¸ºï¼š26/15
+åˆ†æ•°ç›¸å‡ä¹‹åç»“æœçš„æœ€ç®€å½¢å¼ä¸ºï¼š-26/15
+åˆ†æ•°ç›¸ä¹˜ç»“æœä¸º0
+åˆ†æ•°ä¸º0
 */
