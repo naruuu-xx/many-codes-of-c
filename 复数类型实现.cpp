@@ -1,4 +1,9 @@
-
+/*
+       复数类型实现_测试
+	   编写时间：2020年9月20日
+       编写人：薛彤彤
+	   参考出处：教师课堂代码修改
+*/
 #include <stdio.h>
 typedef struct complex
 {
